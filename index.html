@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tecrof – Premium Electronic Gadgets</title>
+<meta name="description" content="Tecrof: official-warranty gadgets, powerbanks, smartwatches, TWS earbuds, solar power stations and more. Cash on Delivery.">
+<meta name="theme-color" content="#0f172a">
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e5e7ef;
+  --brand:#ff9800; --brand-d:#e68900; --dark:#0f172a; --accent:#6366f1; --green:#16a34a; --red:#ef4444;
+  --radius:16px; --shadow:0 6px 24px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding-bottom:84px}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Top strip */
+.strip{background:var(--dark);color:#cbd5e1;font-size:12px;text-align:center;padding:7px 12px}
+.strip b{color:var(--brand)}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0}
+.logo{font-weight:900;font-size:26px;letter-spacing:-1px;display:flex;align-items:center;gap:8px}
+.logo i{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#ff5722);display:grid;place-items:center;color:#fff;font-style:normal;font-size:20px;box-shadow:0 4px 12px rgba(255,152,0,.4)}
+.search{position:relative;grid-column:1/-1;order:3}
+.search input{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:12px 18px 12px 44px;font-size:15px;outline:none;transition:.2s}
+.search input:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(255,152,0,.15)}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.cart-btn{position:relative;border:0;background:var(--dark);color:#fff;width:46px;height:46px;border-radius:14px;display:grid;place-items:center}
+.cart-btn svg{width:22px;height:22px}
+.cart-count{position:absolute;top:-6px;right:-6px;background:var(--brand);color:#fff;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:999px;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+.cart-count.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.4)}}
+.desk-nav{display:none}
+@media(min-width:820px){
+  .head{grid-template-columns:auto 1fr auto auto}
+  .search{grid-column:auto;order:0;max-width:520px;margin:0 auto;width:100%}
+  .desk-nav{display:flex;gap:22px;font-weight:600;font-size:14px;color:var(--muted)}
+  .desk-nav a:hover{color:var(--brand)}
+}
+
+/* Slider */
+.slider{position:relative;margin:16px 0;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.track{display:flex;transition:transform .7s cubic-bezier(.65,0,.35,1)}
+.slide{min-width:100%;padding:34px 24px 54px;color:#fff;display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:10px;min-height:250px;position:relative;overflow:hidden}
+.slide::before,.slide::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.1)}
+.slide::before{width:260px;height:260px;right:-60px;top:-80px}
+.slide::after{width:160px;height:160px;left:40%;bottom:-70px}
+.s1{background:linear-gradient(135deg,#1e1b4b,#4f46e5 60%,#7c3aed)}
+.s2{background:linear-gradient(135deg,#7c2d12,#ea580c 60%,#f59e0b)}
+.s3{background:linear-gradient(135deg,#064e3b,#059669 60%,#34d399)}
+.s4{background:linear-gradient(135deg,#0c4a6e,#0284c7 60%,#38bdf8)}
+.slide small{display:inline-block;background:rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
+.slide h2{font-size:clamp(24px,5vw,42px);line-height:1.1;letter-spacing:-1px;margin-bottom:8px}
+.slide p{opacity:.9;font-size:14px;margin-bottom:16px;max-width:380px}
+.slide .cta{display:inline-block;background:#fff;color:var(--dark);font-weight:800;padding:11px 22px;border-radius:999px;font-size:14px;transition:.2s}
+.slide .cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.slide .art{font-size:clamp(90px,22vw,170px);text-align:center;filter:drop-shadow(0 18px 24px rgba(0,0,0,.35));animation:float 4s ease-in-out infinite;position:relative;z-index:1}
+@keyframes float{50%{transform:translateY(-12px) rotate(3deg)}}
+.dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:3}
+.dots button{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.5);transition:.3s;padding:0}
+.dots button.on{width:26px;background:#fff}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;border:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;font-size:18px;backdrop-filter:blur(6px);display:none}
+.arrow.l{left:12px}.arrow.r{right:12px}
+@media(min-width:700px){.arrow{display:block}.slide{padding:48px 70px 60px;min-height:340px}}
+
+/* Trust badges */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:6px 0 10px}
+.trust div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700}
+.trust span{font-size:22px}
+.trust small{display:block;font-weight:500;color:var(--muted);font-size:11px}
+@media(min-width:700px){.trust{grid-template-columns:repeat(4,1fr)}}
+
+/* Sections */
+section{padding:22px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:14px;gap:10px}
+.sec-head h2{font-size:clamp(20px,3.5vw,28px);letter-spacing:-.5px}
+.sec-head p{color:var(--muted);font-size:13px}
+.sec-head a{color:var(--brand-d);font-weight:700;font-size:14px;white-space:nowrap}
+
+/* Categories */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cat{background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:14px 6px;text-align:center;transition:.25s;cursor:pointer;font-weight:700;font-size:12px}
+.cat .ic{width:56px;height:56px;margin:0 auto 8px;border-radius:18px;display:grid;place-items:center;font-size:28px;background:linear-gradient(135deg,#fff3e0,#ffe0b2)}
+.cat:nth-child(even) .ic{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
+.cat:nth-child(3n) .ic{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.cat:hover,.cat.on{border-color:var(--brand);transform:translateY(-3px);box-shadow:var(--shadow)}
+@media(min-width:700px){.cats{grid-template-columns:repeat(6,1fr)}.cat{font-size:14px}}
+
+/* Products */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(min-width:1040px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:.25s;position:relative}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.thumb{aspect-ratio:1/1;display:grid;place-items:center;font-size:72px;position:relative;overflow:hidden}
+.thumb span{transition:.4s;filter:drop-shadow(0 10px 12px rgba(0,0,0,.2))}
+.card:hover .thumb span{transform:scale(1.12) rotate(-4deg)}
+.badge{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-weight:800;font-size:12px;padding:3px 9px;border-radius:999px;z-index:2}
+.warranty{position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,.92);color:var(--green);font-weight:700;font-size:10.5px;padding:3px 8px;border-radius:999px;z-index:2;display:flex;gap:4px;align-items:center}
+.info{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-size:14px;line-height:1.3;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.stars{color:#f59e0b;font-size:12px;letter-spacing:1px}
+.stars em{color:var(--muted);font-style:normal;margin-left:4px;letter-spacing:0}
+.price{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.price b{font-size:18px;color:var(--ink)}
+.price s{color:var(--muted);font-size:12px}
+.add{margin-top:auto;border:0;background:var(--dark);color:#fff;font-weight:700;padding:11px;border-radius:12px;font-size:13px;transition:.2s}
+.add:hover{background:var(--brand)}
+.add:active{transform:scale(.97)}
+.buy{border:1.5px solid var(--brand);background:#fff7ed;color:var(--brand-d);font-weight:700;padding:9px;border-radius:12px;font-size:12.5px}
+.buy:hover{background:var(--brand);color:#fff}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+
+/* Reviews */
+.reviews{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none}
+.reviews::-webkit-scrollbar{display:none}
+@media(min-width:760px){.reviews{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible}}
+.rv{scroll-snap-align:start;background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);cursor:pointer;transition:.25s}
+.rv:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.vthumb{aspect-ratio:16/9;display:grid;place-items:center;position:relative;color:#fff;font-size:64px}
+.play{position:absolute;width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:.2s}
+.rv:hover .play{transform:scale(1.12)}
+.play::after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent var(--red);margin-left:4px}
+.vtime{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.75);font-size:12px;padding:2px 8px;border-radius:6px;font-weight:700}
+.rv h3{font-size:15px;padding:12px 14px 2px}
+.rv p{font-size:12px;color:var(--muted);padding:0 14px 14px}
+
+/* Brands */
+.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(min-width:760px){.brands{grid-template-columns:repeat(6,1fr)}}
+.brand{background:var(--card);border:1px solid var(--line);border-radius:14px;height:74px;display:grid;place-items:center;font-weight:900;letter-spacing:-.5px;color:#475569;font-size:15px;filter:grayscale(1);opacity:.85;transition:.25s;text-align:center;padding:0 6px}
+.brand:hover{filter:none;opacity:1;color:var(--brand-d);border-color:var(--brand);transform:translateY(-3px)}
+
+/* Checkout */
+.checkout{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:24px;padding:26px 20px;text-align:center;position:relative;overflow:hidden}
+.checkout::after{content:"📦";position:absolute;font-size:150px;right:-20px;bottom:-40px;opacity:.07}
+.checkout h2{font-size:24px;margin-bottom:6px}
+.checkout p{color:#cbd5e1;font-size:14px;max-width:520px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px auto 0;max-width:560px;font-size:12px}
+.steps div{background:rgba(255,255,255,.08);border-radius:12px;padding:10px 4px}
+.steps b{display:block;font-size:20px}
+.checkout .tally-wrap{max-width:520px;margin:0 auto}
+.tally-btn{transition:.2s}
+.tally-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+
+/* Policies */
+.policies details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.policies summary{padding:16px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.policies summary::-webkit-details-marker{display:none}
+.policies summary::after{content:"+";font-size:22px;color:var(--brand);transition:.2s}
+.policies details[open] summary::after{transform:rotate(45deg)}
+.policies .body{padding:0 16px 16px;color:#334155;font-size:14px}
+.policies ul{padding-left:20px;margin:8px 0}
+.policies li{margin:4px 0}
+.ok{color:var(--green);font-weight:700}.no{color:var(--red);font-weight:700}
+
+/* Footer */
+footer{background:var(--dark);color:#cbd5e1;margin-top:30px;padding:36px 0 20px}
+.fgrid{display:grid;gap:26px;grid-template-columns:1fr}
+@media(min-width:760px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+footer h4{color:#fff;margin-bottom:12px;font-size:15px}
+footer a{display:block;padding:4px 0;font-size:14px;color:#94a3b8;transition:.2s}
+footer a:hover{color:var(--brand)}
+footer .logo{color:#fff;margin-bottom:10px}
+footer p{font-size:14px;color:#94a3b8}
+.social{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.social a{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);padding:8px 12px;border-radius:999px;font-size:13px;color:#e2e8f0}
+.social a:hover{background:var(--brand);color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:26px;padding-top:16px;text-align:center;font-size:12px;color:#64748b}
+
+/* Bottom nav */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -6px 24px rgba(15,23,42,.08)}
+.bnav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;color:var(--muted);padding:6px 0;border-radius:12px;transition:.2s}
+.bnav svg{width:22px;height:22px}
+.bnav a:hover,.bnav a.on{color:var(--brand-d)}
+.bnav a.wa{color:#16a34a}
+@media(min-width:1000px){.bnav{max-width:560px;left:50%;transform:translateX(-50%);border-radius:22px 22px 0 0;border:1px solid var(--line)}}
+
+/* Cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);opacity:0;pointer-events:none;transition:.3s;z-index:80}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:#fff;z-index:90;transform:translateX(100%);transition:transform .35s cubic-bezier(.65,0,.35,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:18px}
+.x{border:0;background:var(--bg);width:36px;height:36px;border-radius:50%;font-size:18px}
+.items{flex:1;overflow:auto;padding:12px 16px}
+.item{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.item .im{width:60px;height:60px;border-radius:12px;display:grid;place-items:center;font-size:30px}
+.item h4{font-size:13px;line-height:1.3}
+.item .p{font-size:13px;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:800}
+.rm{border:0;background:none;color:var(--red);font-size:18px}
+.df{padding:16px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:10px}
+.dnote{font-size:12px;color:var(--muted);margin-bottom:10px}
+.cart-empty{text-align:center;color:var(--muted);padding:60px 10px}
+.cart-empty span{font-size:56px;display:block}
+
+/* Video modal */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.85);display:none;place-items:center;padding:16px}
+.modal.on{display:grid}
+.modal .box{width:min(900px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;position:relative;display:grid;place-items:center;color:#cbd5e1;text-align:center;padding:20px}
+.modal iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.modal .x{position:absolute;top:-48px;right:0;background:#fff}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,30px);background:var(--dark);color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:120;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* Reveal */
+.rev{opacity:0;transform:translateY(22px);transition:.7s}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="strip">🚚 Cash on Delivery nationwide &nbsp;•&nbsp; <b>Official Warranty</b> on every gadget</div>
+
+<header>
+  <div class="container head">
+    <a href="#home" class="logo" aria-label="Tecrof home"><i>T</i>Tecrof</a>
+    <nav class="desk-nav" aria-label="Main">
+      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#reviews">Reviews</a><a href="#brands">Brands</a><a href="#policies">Policies</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <form class="search" role="search" onsubmit="return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <label class="sr" for="q">Search gadgets</label>
+      <input id="q" type="search" placeholder="Search powerbanks, earbuds, smartwatches…" autocomplete="off">
+    </form>
+  </div>
+</header>
+
+<main id="home">
+<div class="container">
+
+  <!-- Slider -->
+  <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Featured gadgets">
+    <div class="track" id="track">
+      <div class="slide s1"><div><small>🔥 TRENDING NOW</small><h2>Smartwatches that keep up with you</h2><p>AMOLED displays, calling, 7-day battery. Official warranty included.</p><a class="cta" href="#shop" data-cat="Smartwatches">Shop Watches</a></div><div class="art">⌚</div></div>
+      <div class="slide s2"><div><small>⚡ BEST SELLER</small><h2>Powerbanks up to 20,000mAh</h2><p>Fast-charge every device, anywhere. Safe, certified, warrantied.</p><a class="cta" href="#shop" data-cat="Powerbanks">Shop Powerbanks</a></div><div class="art">🔋</div></div>
+      <div class="slide s3"><div><small>☀️ OFF-GRID READY</small><h2>Solar Power Stations</h2><p>Silent backup power for home, camping and work.</p><a class="cta" href="#shop" data-cat="Solar Power">Explore Solar</a></div><div class="art">🌞</div></div>
+      <div class="slide s4"><div><small>🎧 NEW ARRIVALS</small><h2>TWS &amp; Headphones, big sound</h2><p>Low-latency gaming mode, ANC and all-day comfort.</p><a class="cta" href="#shop" data-cat="TWS & Headphones">Shop Audio</a></div><div class="art">🎧</div></div>
+    </div>
+    <button class="arrow l" id="prev" aria-label="Previous slide">‹</button>
+    <button class="arrow r" id="next" aria-label="Next slide">›</button>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="trust">
+    <div><span>🛡️</span><p>Official Warranty<small>Genuine products</small></p></div>
+    <div><span>💵</span><p>Cash on Delivery<small>Pay when you receive</small></p></div>
+    <div><span>🚚</span><p>Fast Delivery<small>Across the country</small></p></div>
+    <div><span>🔁</span><p>14-Day Protection<small>Damaged / wrong item</small></p></div>
+  </div>
+
+  <!-- Categories -->
+  <section id="categories" class="rev">
+    <div class="sec-head"><div><h2>Featured Categories</h2><p>Tap a category to filter</p></div></div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <!-- Products -->
+  <section id="shop" class="rev">
+    <div class="sec-head"><div><h2 id="shopTitle">Trending Gadgets</h2><p id="shopSub">Hand-picked, warranty-backed</p></div><a href="#" id="resetFilter">Show all</a></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="rev">
+    <div class="sec-head"><div><h2>Quick Gadget Reviews</h2><p>Watch before you buy</p></div><a href="https://www.youtube.com/@tecrof" target="_blank" rel="noopener">YouTube →</a></div>
+    <div class="reviews" id="rvList"></div>
+  </section>
+
+  <!-- Brands -->
+  <section id="brands" class="rev">
+    <div class="sec-head"><div><h2>Brands We Carry</h2><p>Authorized &amp; trusted names</p></div></div>
+    <div class="brands" id="brandList"></div>
+  </section>
+
+  <!-- Checkout -->
+  <section id="checkout" class="rev">
+    <div class="checkout">
+      <h2>Ready to order? 📦</h2>
+      <p>Fill a quick form, we confirm by phone, and you pay only when the parcel reaches your door.</p>
+      <div class="steps"><div><b>📝</b>Submit form</div><div><b>📞</b>We confirm</div><div><b>💵</b>Pay on delivery</div></div>
+
+      <script async src="https://tally.so/widgets/embed.js"></script>
+      <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;" class="tally-wrap">
+        <button class="tally-btn" data-tally-emoji-animation="wave" data-tally-emoji-text="📦" data-tally-open="obj78M" style="width: 100%; background-color: #ff9800; color: #fff; border: none; padding: 15px 0; font-size: 18px; font-weight: bold; border-radius: 6px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          Order Now (Cash on Delivery)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies -->
+  <section id="policies" class="policies rev">
+    <div class="sec-head"><div><h2>Store Policies</h2><p>Clear and customer-friendly</p></div></div>
+
+    <details open id="refund">
+      <summary>Refund &amp; Replacement Policy</summary>
+      <div class="body">
+        <p><b>14-day protection window.</b> Report any issue within 14 days of receiving your order and we'll make it right.</p>
+        <p style="margin-top:8px"><span class="ok">Eligible issues:</span></p>
+        <ul><li>Item arrived damaged</li><li>Wrong item delivered</li><li>Parcel lost in transit</li></ul>
+        <p>✅ <b>No return shipping required</b> – we don't ask you to send anything back for eligible cases.</p>
+        <p style="margin-top:8px"><span class="no">Not accepted:</span> change of mind.</p>
+      </div>
+    </details>
+    <details id="privacy"><summary>Privacy Policy</summary><div class="body"><p>We collect only what's needed to process and deliver your order (name, phone, address). Your data is never sold, and is shared only with delivery partners to fulfil your order. Contact us any time to request correction or deletion of your details.</p></div></details>
+    <details id="terms"><summary>Terms &amp; Conditions</summary><div class="body"><p>By placing an order you confirm the details you submit are accurate. Prices and stock may change without notice. Orders are confirmed by phone before dispatch, and we may cancel orders we cannot fulfil or verify.</p></div></details>
+    <details id="shipping"><summary>Shipping &amp; Delivery</summary><div class="body"><p>We ship nationwide with Cash on Delivery. Delivery time and charges depend on your location and are confirmed during order verification. Please inspect the parcel at delivery and report issues promptly.</p></div></details>
+    <details id="warranty"><summary>Warranty Policy</summary><div class="body"><p>Products marked "Official Warranty" are covered against manufacturing defects for the period shown on the product. Physical damage, liquid damage and unauthorized repairs are not covered. Keep your order confirmation as proof of purchase.</p></div></details>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div>
+        <a href="#home" class="logo"><i>T</i>Tecrof</a>
+        <p>Premium electronic gadgets with official warranty and Cash on Delivery. Smart tech, honest prices.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a><a href="#shop">Shop</a><a href="#reviews">Gadget Reviews</a><a href="#brands">Brands</a><a href="#checkout">Order Now</a>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <a href="#refund" data-open>Refund &amp; Replacement Policy</a>
+        <a href="#privacy" data-open>Privacy Policy</a>
+        <a href="#terms" data-open>Terms &amp; Conditions</a>
+        <a href="#shipping" data-open>Shipping &amp; Delivery</a>
+        <a href="#warranty" data-open>Warranty Policy</a>
+      </div>
+      <div>
+        <h4>Contact &amp; Follow</h4>
+        <a href="mailto:support@tecrof.com">✉️ support@tecrof.com</a>
+        <a href="https://www.tecrof.com" target="_blank" rel="noopener">🌐 www.tecrof.com</a>
+        <div class="social">
+          <a href="https://www.facebook.com/@tecrof" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/@tecrofofficial" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@tecrof" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.tiktok.com/@tecrof" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© <span id="yr"></span> Tecrof. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- Bottom nav -->
+<nav class="bnav" aria-label="Quick navigation">
+  <a href="#home" class="on" data-nav><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</a>
+  <a href="#shop" data-nav><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Shop</a>
+  <a href="#" id="account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>My Account</a>
+  <a href="#" id="phoneLink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Phone</a>
+  <a href="#" id="waLink" class="wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+</nav>
+
+<!-- Cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="dh"><h3>Your Cart 🛒</h3><button class="x" id="closeCart" aria-label="Close cart">✕</button></div>
+  <div class="items" id="items"></div>
+  <div class="df" id="dfoot">
+    <div class="tot"><span>Total</span><span id="total">0</span></div>
+    <p class="dnote">Delivery charge confirmed on phone. Pay on delivery.</p>
+    <button class="tally-btn" id="cartOrder" data-tally-emoji-animation="wave" data-tally-emoji-text="📦" data-tally-open="obj78M" style="width:100%;background-color:#ff9800;color:#fff;border:none;padding:15px 0;font-size:18px;font-weight:bold;border-radius:6px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,.1)">Order Now (Cash on Delivery)</button>
+  </div>
+</aside>
+
+<!-- Video modal -->
+<div class="modal" id="vmodal" role="dialog" aria-modal="true" aria-label="Video review">
+  <div class="box" id="vbox"><button class="x" id="closeV" aria-label="Close video">✕</button></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ CONFIG – edit these ============ */
+const CURRENCY = "৳";
+const PHONE    = "+8801000000000";   // TODO: your support phone (with country code)
+const WHATSAPP = "8801000000000";    // TODO: WhatsApp number, digits only
+/* Add real YouTube video IDs to each review below (the "yt" field) */
+
+const CATEGORIES = [
+  {n:"Rechargeable Lights & Fans", i:"💡"},
+  {n:"Solar Power", i:"☀️"},
+  {n:"Powerbanks", i:"🔋"},
+  {n:"TWS & Headphones", i:"🎧"},
+  {n:"Smartwatches", i:"⌚"},
+  {n:"Speakers & More", i:"🔊"}
+];
+
+const PRODUCTS = [
+  {id:1, t:"Rechargeable Mini Desk Fan – 3 Speed, 10-Hr Battery", c:"Rechargeable Lights & Fans", p:1290, o:1550, e:"🌀", bg:"#e0f2fe", w:"6 Months Warranty", r:4.6, rc:212},
+  {id:2, t:"Rechargeable LED Emergency Light – 8-Hr Backup", c:"Rechargeable Lights & Fans", p:990, o:1190, e:"💡", bg:"#fef9c3", w:"3 Months Warranty", r:4.5, rc:164},
+  {id:3, t:"Portable Solar Power Station 300W – AC/DC/USB", c:"Solar Power", p:21900, o:25900, e:"🌞", bg:"#dcfce7", w:"1 Year Warranty", r:4.8, rc:58},
+  {id:4, t:"Foldable Solar Panel 50W – Fast Charging Kit", c:"Solar Power", p:6490, o:7400, e:"🔆", bg:"#ecfccb", w:"6 Months Warranty", r:4.4, rc:37},
+  {id:5, t:"20,000mAh Fast Charge Powerbank – 22.5W PD", c:"Powerbanks", p:2490, o:2990, e:"🔋", bg:"#ffedd5", w:"1 Year Warranty", r:4.7, rc:341},
+  {id:6, t:"10,000mAh Slim Powerbank – Dual Output", c:"Powerbanks", p:1590, o:1890, e:"⚡", bg:"#fee2e2", w:"6 Months Warranty", r:4.5, rc:289},
+  {id:7, t:"TWS Earbuds Pro – ANC, Gaming Mode, 30-Hr Play", c:"TWS & Headphones", p:1890, o:2390, e:"🎧", bg:"#ede9fe", w:"1 Year Warranty", r:4.6, rc:402},
+  {id:8, t:"Wireless Over-Ear Headphones – Deep Bass, BT 5.3", c:"TWS & Headphones", p:2290, o:2690, e:"🎶", bg:"#e0e7ff", w:"6 Months Warranty", r:4.4, rc:176},
+  {id:9, t:"AMOLED Smartwatch – Bluetooth Calling, 7-Day Battery", c:"Smartwatches", p:3490, o:4290, e:"⌚", bg:"#fae8ff", w:"1 Year Warranty", r:4.7, rc:518},
+  {id:10,t:"Sport Fitness Band – Heart Rate & SpO2 Tracking", c:"Smartwatches", p:1790, o:2090, e:"⏱️", bg:"#cffafe", w:"6 Months Warranty", r:4.3, rc:233},
+  {id:11,t:"Portable Bluetooth Speaker – Waterproof, RGB", c:"Speakers & More", p:1990, o:2490, e:"🔊", bg:"#fce7f3", w:"6 Months Warranty", r:4.5, rc:147},
+  {id:12,t:"65W GaN Fast Charger – 3 Port Travel Adapter", c:"Speakers & More", p:1490, o:1790, e:"🔌", bg:"#f1f5f9", w:"1 Year Warranty", r:4.6, rc:121}
+];
+
+const REVIEWS = [
+  {t:"Top 5 Powerbanks Tested", d:"Real-world charging speed & safety", e:"🔋", g:"linear-gradient(135deg,#7c2d12,#f59e0b)", len:"6:42", yt:""},
+  {t:"AMOLED Smartwatch Honest Review", d:"Battery, calling & fitness accuracy", e:"⌚", g:"linear-gradient(135deg,#1e1b4b,#7c3aed)", len:"8:15", yt:""},
+  {t:"TWS Earbuds Under Budget", d:"ANC, latency and sound compared", e:"🎧", g:"linear-gradient(135deg,#0c4a6e,#38bdf8)", len:"7:03", yt:""}
+];
+
+const BRANDS = ["Xiaomi","Anker","Baseus","Realme","QCY","Haylou","Remax","Hoco","Joyroom","Ugreen","Lenovo","Amazfit"];
+
+/* ============ Helpers ============ */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const money = n => CURRENCY + n.toLocaleString("en-US");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let activeCat = null, query = "";
+
+/* ============ Contact links ============ */
+$("#phoneLink").href = "tel:" + PHONE;
+$("#waLink").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Hi Tecrof, I need help with a product.");
+$("#yr").textContent = new Date().getFullYear();
+
+/* ============ Toast ============ */
+let tt;
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),1900); }
+
+/* ============ Categories & products ============ */
+function renderCats(){
+  $("#cats").innerHTML = CATEGORIES.map(c =>
+    `<button class="cat${activeCat===c.n?" on":""}" data-cat="${esc(c.n)}"><div class="ic">${c.i}</div>${esc(c.n)}</button>`).join("");
+}
+function stars(r){ const f=Math.round(r); return "★".repeat(f)+"☆".repeat(5-f); }
+function renderProducts(){
+  const list = PRODUCTS.filter(p =>
+    (!activeCat || p.c===activeCat) &&
+    (!query || (p.t+" "+p.c).toLowerCase().includes(query)));
+  $("#shopTitle").textContent = activeCat || (query ? "Search Results" : "Trending Gadgets");
+  $("#shopSub").textContent = list.length + " product" + (list.length===1?"":"s");
+  $("#resetFilter").style.display = (activeCat||query) ? "" : "none";
+  $("#grid").innerHTML = list.length ? list.map(p => {
+    const off = Math.round((1 - p.p/p.o) * 100);
+    return `<article class="card">
+      <div class="thumb" style="background:${p.bg}">
+        <span class="badge">-${off}%</span>
+        <span aria-hidden="true">${p.e}</span>
+        <span class="warranty">🛡️ ${esc(p.w)}</span>
+      </div>
+      <div class="info">
+        <h3>${esc(p.t)}</h3>
+        <div class="stars">${stars(p.r)}<em>(${p.rc})</em></div>
+        <div class="price"><b>${money(p.p)}</b><s>${money(p.o)}</s></div>
+        <button class="add" data-add="${p.id}">Add to Cart</button>
+        <button class="buy" data-buy="${p.id}">Buy Now</button>
+      </div>
+    </article>`;
+  }).join("") : `<p class="empty">😕 No products found. Try another search.</p>`;
+}
+function setCat(name){ activeCat = name; renderCats(); renderProducts(); }
+
+document.addEventListener("click", e => {
+  const cat = e.target.closest("[data-cat]");
+  if(cat){ setCat(activeCat===cat.dataset.cat && cat.classList.contains("cat") ? null : cat.dataset.cat);
+    if(cat.classList.contains("cat")) $("#shop").scrollIntoView({behavior:"smooth"}); }
+  const add = e.target.closest("[data-add]");
+  if(add){ addToCart(+add.dataset.add); }
+  const buy = e.target.closest("[data-buy]");
+  if(buy){ addToCart(+buy.dataset.buy, true); openCart(); }
+  const op = e.target.closest("[data-open]");
+  if(op){ const d=$(op.getAttribute("href")); if(d) d.open=true; }
+});
+$("#resetFilter").addEventListener("click", e => { e.preventDefault(); query=""; $("#q").value=""; setCat(null); });
+$("#q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); renderProducts(); if(query) $("#shop").scrollIntoView({behavior:"smooth"}); });
+
+/* ============ Cart ============ */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("tecrof_cart")||"[]").filter(i => PRODUCTS.some(p=>p.id===i.id)); } catch(_){}
+function save(){ try{ localStorage.setItem("tecrof_cart", JSON.stringify(cart)); }catch(_){} }
+function addToCart(id, silent){
+  const it = cart.find(i=>i.id===id);
+  it ? it.q++ : cart.push({id, q:1});
+  save(); renderCart();
+  const c=$("#cartCount"); c.classList.remove("bump"); void c.offsetWidth; c.classList.add("bump");
+  if(!silent) toast("Added to cart ✓");
+}
+function renderCart(){
+  const n = cart.reduce((a,i)=>a+i.q,0);
+  $("#cartCount").textContent = n;
+  const box = $("#items");
+  if(!cart.length){
+    box.innerHTML = `<div class="cart-empty"><span>🛒</span>Your cart is empty</div>`;
+    $("#dfoot").style.display="none"; return;
+  }
+  $("#dfoot").style.display="";
+  let total=0;
+  box.innerHTML = cart.map(i=>{
+    const p = PRODUCTS.find(x=>x.id===i.id); total += p.p*i.q;
+    return `<div class="item">
+      <div class="im" style="background:${p.bg}">${p.e}</div>
+      <div><h4>${esc(p.t)}</h4><div class="p">${money(p.p)}</div>
+        <div class="qty"><button data-q="-1" data-id="${p.id}" aria-label="Decrease">−</button><b>${i.q}</b><button data-q="1" data-id="${p.id}" aria-label="Increase">+</button></div></div>
+      <button class="rm" data-rm="${p.id}" aria-label="Remove">🗑</button></div>`;
+  }).join("");
+  $("#total").textContent = money(total);
+}
+$("#items").addEventListener("click", e=>{
+  const q = e.target.closest("[data-q]"), rm = e.target.closest("[data-rm]");
+  if(q){ const it=cart.find(i=>i.id===+q.dataset.id); it.q += +q.dataset.q; if(it.q<1) cart=cart.filter(i=>i!==it); }
+  if(rm){ cart = cart.filter(i=>i.id!==+rm.dataset.rm); }
+  if(q||rm){ save(); renderCart(); }
+});
+function openCart(){ $("#drawer").classList.add("on"); $("#overlay").classList.add("on"); $("#drawer").setAttribute("aria-hidden","false"); }
+function closeCart(){ $("#drawer").classList.remove("on"); $("#overlay").classList.remove("on"); $("#drawer").setAttribute("aria-hidden","true"); }
+$("#openCart").onclick = openCart; $("#closeCart").onclick = closeCart; $("#overlay").onclick = closeCart;
+$("#account").addEventListener("click", e=>{ e.preventDefault(); toast("Accounts coming soon – order as guest via COD 📦"); });
+
+/* ============ Slider ============ */
+(function(){
+  const track=$("#track"), slides=$$(".slide",track), dots=$("#dots");
+  let i=0, timer, sx=null;
+  slides.forEach((_,k)=>{ const b=document.createElement("button"); b.setAttribute("aria-label","Go to slide "+(k+1)); b.onclick=()=>go(k,true); dots.appendChild(b); });
+  function go(n,manual){ i=(n+slides.length)%slides.length; track.style.transform=`translateX(-${i*100}%)`; $$("button",dots).forEach((b,k)=>b.classList.toggle("on",k===i)); if(manual) restart(); }
+  function restart(){ clearInterval(timer); timer=setInterval(()=>go(i+1),4800); }
+  $("#prev").onclick=()=>go(i-1,true); $("#next").onclick=()=>go(i+1,true);
+  const s=$("#slider");
+  s.addEventListener("touchstart",e=>{ sx=e.touches[0].clientX; clearInterval(timer); },{passive:true});
+  s.addEventListener("touchend",e=>{ if(sx!==null){ const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) go(i+(dx<0?1:-1)); sx=null; } restart(); });
+  s.addEventListener("mouseenter",()=>clearInterval(timer)); s.addEventListener("mouseleave",restart);
+  go(0); restart();
+})();
+
+/* ============ Reviews / video ============ */
+$("#rvList").innerHTML = REVIEWS.map((r,k)=>`
+  <article class="rv" data-v="${k}" tabindex="0" role="button" aria-label="Play ${esc(r.t)}">
+    <div class="vthumb" style="background:${r.g}"><span aria-hidden="true">${r.e}</span><div class="play"></div><span class="vtime">${r.len}</span></div>
+    <h3>${esc(r.t)}</h3><p>${esc(r.d)}</p></article>`).join("");
+function openVideo(k){
+  const r=REVIEWS[k], box=$("#vbox");
+  $$("iframe,.vmsg",box).forEach(n=>n.remove());
+  if(r.yt){ const f=document.createElement("iframe"); f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(r.yt)+"?autoplay=1&rel=0"; f.allow="autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen=true; f.title=r.t; box.appendChild(f); }
+  else { const m=document.createElement("div"); m.className="vmsg"; m.innerHTML=`<p style="font-size:42px">🎬</p><p><b>${esc(r.t)}</b></p><p style="margin-top:6px;font-size:13px">Add a YouTube video ID in <code>REVIEWS</code> to embed this video.</p><p style="margin-top:12px"><a style="color:#ff9800;font-weight:700" href="https://www.youtube.com/@tecrof" target="_blank" rel="noopener">Watch on our YouTube channel →</a></p>`; box.appendChild(m); }
+  $("#vmodal").classList.add("on");
+}
+function closeVideo(){ $("#vmodal").classList.remove("on"); $$("iframe",$("#vbox")).forEach(n=>n.remove()); }
+$("#rvList").addEventListener("click",e=>{ const c=e.target.closest("[data-v]"); if(c) openVideo(+c.dataset.v); });
+$("#rvList").addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ const c=e.target.closest("[data-v]"); if(c){ e.preventDefault(); openVideo(+c.dataset.v);} } });
+$("#closeV").onclick=closeVideo; $("#vmodal").addEventListener("click",e=>{ if(e.target.id==="vmodal") closeVideo(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeVideo(); closeCart(); } });
+
+/* ============ Brands (text wordmarks – swap in your own licensed logo images) ============ */
+$("#brandList").innerHTML = BRANDS.map(b=>`<div class="brand">${esc(b)}</div>`).join("");
+
+/* ============ Reveal on scroll + bottom nav highlight ============ */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }),{threshold:.08}) : null;
+$$(".rev").forEach(el=> io ? io.observe(el) : el.classList.add("in"));
+const navLinks=$$("[data-nav]");
+const spy = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ const id="#"+(en.target.id==="home"?"home":"shop"); navLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")===id)); } }),{threshold:.35}) : null;
+if(spy){ spy.observe($("#home .slider")); spy.observe($("#shop")); }
+
+renderCats(); renderProducts(); renderCart();
+</script>
+
+<!-- Tidio live chat -->
+<!-- NOTE: the key in the URL below contained an unusual character ("ó") when pasted. Replace YOUR_TIDIO_PUBLIC_KEY with the exact key from Tidio → Settings → Developer. -->
+<script src="//code.tidio.co/YOUR_TIDIO_PUBLIC_KEY.js" async></script>
+</body>
+</html>
